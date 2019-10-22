@@ -39,7 +39,7 @@ public class ShipwreckController {
 
     @RequestMapping(value = "shipwrecks/{id}", method = RequestMethod.DELETE)
     public Shipwreck delete(@PathVariable Long id) {
-        Shipwreck existingShipwreck = shipwreckRepository.getOne(id);
+        Shipwreck existingShipwreck = shipwreckRepository.findById(id).get();
         shipwreckRepository.delete(existingShipwreck);
         return existingShipwreck;
     }
